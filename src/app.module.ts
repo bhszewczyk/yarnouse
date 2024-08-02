@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { HookMaterialModule } from './hook-material/hook-material.module';
 
 @Module({
   imports: [
@@ -17,10 +18,11 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
-        entities: [],
-        synchronize: true,
+        autoLoadEntities: true,
+        synchronize: false,
       }),
     }),
+    HookMaterialModule,
   ],
   controllers: [AppController],
   providers: [AppService],
