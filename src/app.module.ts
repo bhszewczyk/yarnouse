@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { HookMaterialModule } from './hook-material/hook-material.module';
+import { HookSizeModule } from './hook-size/hook-size.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { HookMaterialModule } from './hook-material/hook-material.module';
       }),
     }),
     HookMaterialModule,
+    HookSizeModule,
   ],
   controllers: [AppController],
   providers: [AppService],

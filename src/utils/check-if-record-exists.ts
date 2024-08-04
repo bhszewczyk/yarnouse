@@ -2,7 +2,7 @@ import { Repository } from 'typeorm';
 
 interface ColumnValue {
   key: string;
-  value: string;
+  value: string | number;
 }
 
 interface QueryFindOptions {
